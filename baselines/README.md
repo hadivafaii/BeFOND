@@ -3,6 +3,17 @@
 The baselines live alongside BeFOND so experiments do not require a private
 research checkout. They keep their own objectives and optimizers.
 
+For a small first check, install the project with `python -m pip install -e ".[test]"`,
+then run this command **from the repository root**:
+
+```bash
+python -m pytest baselines/sae/tests -q
+```
+
+It checks all six compact SAE families on CPU, using generated tensors and
+local temporary checkpoints. No dataset or model download is needed. The
+Miguel and David packages below have separate optional environments.
+
 | Package | Models | Start here |
 | --- | --- | --- |
 | [`sae`](sae/README.md) | ReLU, Gated, TopK, BatchTopK, JumpReLU, Matryoshka | Small PyTorch models and a shared-data training example |
@@ -30,9 +41,9 @@ implementations should not be described as reproducing those separate Gemma runs
 Run each optional stack in its own environment:
 
 ```bash
-pytest baselines/sae/tests -q
-pytest baselines/miguel/tests -q
-pytest baselines/david/tests -q
+python -m pytest baselines/sae/tests -q
+JAX_PLATFORMS=cpu python -m pytest baselines/miguel/tests -q
+python -m pytest baselines/david/tests -q
 ```
 
 The compact SAE checks cover all six architectures, portable checkpoint round

@@ -46,6 +46,13 @@ posterior means are `[batch, number_of_latents]`.
 
 ## Where to read the code
 
+Each package has its own short guide with commands to inspect or test it:
+[`befond`](befond/README.md), [`data`](befond/data/README.md),
+[`evaluation`](befond/evaluation/README.md), [`baselines`](baselines/README.md),
+and [`experiments`](experiments/README.md). For a first hands-on run, visit
+[`examples`](examples/README.md); for checks, visit [`tests`](tests/README.md).
+All guide commands run from the repository root unless stated otherwise.
+
 [`docs/algorithm.md`](docs/algorithm.md) connects the equations, tensor shapes,
 update order, and main hyperparameters.
 

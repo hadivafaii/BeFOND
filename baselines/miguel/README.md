@@ -4,6 +4,17 @@ Both models have independent Bernoulli latents, a linear Gaussian decoder,
 learned diagonal observation variance, bias, and prior probabilities. Inference
 holds the learned prior fixed. Training does not differentiate through inference.
 
+For a small CPU check, use an environment with the project, pytest, JAX and Optax
+(`python -m pip install -e ".[test,miguel]"`). Run **from the repository root**:
+
+```bash
+JAX_PLATFORMS=cpu python -m pytest baselines/miguel/tests -q
+```
+
+This checks the exact single-latent mean-field posterior and a finite parameter
+update for both methods. It uses generated tensors and downloads no data or
+checkpoints. The pinned full-experiment environments are described below.
+
 - [`mf.py`](mf.py): parallel damped mean-field inference, an Adam dictionary
   update on the fixed-posterior ELBO, followed by sequential moment updates.
 - [`gamp.py`](gamp.py): damped diagonal sum-product GAMP, an Adam dictionary

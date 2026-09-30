@@ -6,6 +6,17 @@ BatchTopK, Matryoshka, and JumpReLU recipes, including the full screening recipe
 registry and exact overrides for the selected L0-grid and MinFire follow-ups.
 No external private checkout is needed.
 
+For a small CPU check, first use the dedicated SAELens environment described
+under [Install](#install), with `pytest` installed. Run **from the repository root**:
+
+```bash
+python -m pytest baselines/david/tests -q
+```
+
+These checks use generated tensors and the bundled catalog; they download no
+world or checkpoint. They exercise the custom gates, training continuation,
+resampling, inference export, and experiment plans.
+
 Start with [`recipes.py`](recipes.py), then [`sae.py`](sae.py), then
 [`train.py`](train.py). Training uses native SAELens losses and optimizer steps;
 [`gates.py`](gates.py) contains the custom MinFire and Sinkhorn gates.

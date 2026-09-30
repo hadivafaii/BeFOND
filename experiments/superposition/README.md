@@ -2,7 +2,16 @@
 
 This experiment varies input dimension while keeping 16,384 generating features and a learned dictionary of 4,096 atoms. The current search compares one inference step with an exponentially sampled horizon of mean 5.5, capped at 50.
 
-Prepare dimension-specific generators, then run the explicit 768-dimensional starting configuration:
+For a quick check, use the base installation and run these commands **from the repository root**:
+
+```bash
+python -m experiments.superposition.train --show-config
+python -m experiments.superposition.sweep --help
+```
+
+These only print configuration or help; they do not generate data, write sweep files, or start training. [`prepare.py`](prepare.py) creates the dictionaries, [`sweep.py`](sweep.py) expands the search grid, and [`train.py`](train.py) uses the shared trainer. [`evaluate.py`](evaluate.py) reuses the synthetic evaluation command.
+
+Use the optional `synthetic` environment from the [root README](../../README.md) for the full experiment. Prepare dimension-specific generators, then run the explicit 768-dimensional starting configuration **from the repository root**:
 
 ```bash
 python -m experiments.superposition.prepare --output data/superposition --device cuda:0

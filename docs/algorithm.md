@@ -17,7 +17,7 @@ gradient of free energy gives
 
 ```math
 \dot u = \Phi^T\Sigma^{-1}(x-b)
-         -Wr-\tfrac12\operatorname{diag}(W)\odot(1-2r)
+         -Wr-\tfrac12\mathrm{diag}(W)\odot(1-2r)
          -\beta(u-u_{\mathrm{ref}}).
 ```
 
@@ -46,7 +46,7 @@ At the last inference step, learning detaches the posterior and forms the
 expected second moment
 
 ```math
-E=\langle\operatorname{diag}[r\odot(1-r)]+rr^T\rangle.
+E=\langle\mathrm{diag}[r\odot(1-r)]+rr^T\rangle.
 ```
 
 The decoder's frozen-statistics natural-gradient flow uses this posterior

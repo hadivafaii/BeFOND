@@ -2,6 +2,15 @@
 
 This experiment learns a Bernoulli sparse-coding dictionary from the pinned public SynthSAEBench generator. Start with [`configs/synthetic.json`](../../configs/synthetic.json); it contains the current model, training, data, and evaluation settings.
 
+For a quick check, use the base installation and run these commands **from the repository root**:
+
+```bash
+python -m experiments.synthetic.train --show-config
+python -m experiments.synthetic.evaluate --help
+```
+
+The first prints the resolved settings; the second lists evaluation options. Neither downloads data nor starts training. The full recipe below requires the optional `synthetic` environment described in the [root README](../../README.md).
+
 The generator contains 16,384 features in 768 dimensions. `benchmark: historical` selects the source project's distribution with **parent amplitude scaling disabled**. `published` enables that scaling; it changes the data distribution, so record the choice when comparing results.
 
 Use the synthetic environment described in the root README, then run from the repository root:

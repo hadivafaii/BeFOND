@@ -2,7 +2,16 @@
 
 This path learns a BeFOND dictionary on the layer-12 post-residual activations of Gemma-2-2B. [`configs/gemma.json`](../../configs/gemma.json) holds current defaults. The model, tokenizer, corpus, and benchmark revisions are pinned in [`befond/data/gemma_spec.py`](../../befond/data/gemma_spec.py).
 
-Use the separate Gemma environment from the root README. Obtain access to `google/gemma-2-2b` and authenticate Hugging Face in your own environment, then run:
+For a quick check, use the base installation and run these commands **from the repository root**:
+
+```bash
+python -m experiments.gemma.train --show-config
+python -m experiments.gemma.evaluate --help
+```
+
+These print settings and options without loading Gemma, downloading data, or training. Start reading with [`prepare.py`](prepare.py) for token splits, [`extract.py`](extract.py) for activations, and [`evaluate.py`](evaluate.py) for benchmark orchestration. [`train.py`](train.py) delegates to the shared BeFOND trainer.
+
+Use the separate optional `gemma` environment from the [root README](../../README.md). Obtain access to `google/gemma-2-2b` and authenticate Hugging Face in your own environment, then run **from the repository root**:
 
 ```bash
 python -m experiments.gemma.prepare --data-dir data/gemma

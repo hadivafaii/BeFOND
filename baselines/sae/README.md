@@ -1,5 +1,19 @@
 # Small PyTorch SAEs
 
+This package implements six feedforward sparse autoencoders, with a common
+training loop and checkpoint format. It is a small starting point for comparing
+encoder architectures on the same data as BeFOND.
+
+With the project and test dependencies installed
+(`python -m pip install -e ".[test]"`), run **from the repository root**:
+
+```bash
+python -m pytest baselines/sae/tests -q
+```
+
+The checks run on CPU without downloading data or pretrained models. They cover
+all architectures, checkpoint loading, and continuation after interrupted training.
+
 Read [`config.py`](config.py), then the selected file in [`models`](models),
 then [`training.py`](training.py). The architecture code is preserved from the
 research implementation. The smaller trainer removes private datasets, sweep
