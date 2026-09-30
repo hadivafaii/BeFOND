@@ -1,0 +1,15 @@
+{
+  "study": "synth_sae_bench/26_full_width_sweep",
+  "saelens_revision": "b5711e34d072846dc112881f4c8d209407a32b56",
+  "autotuner_repository": "https://github.com/decoderesearch/synth-sae-bench-experiments",
+  "autotuner_revision": "66eee052b734193ab2e8cbe6bd9ee6d6caae1675",
+  "source_sha256": {
+    "coefficient_autotuner.py": "6ab668ff2bed23cba56c773a61cd17e6bb3945b68e5417c675c4ea6666e35cf1",
+    "gates.py": "301a8a559cc484d5c6f0dcad4b98065b3b94237601b72a036f08af277e1f5feb",
+    "launch.py": "ac73ccb3573a86d7d98cb1c005417550b95fbf4ab3733c0ab9516db1b189155c",
+    "plot.py": "043bc8676c645687624fce220662f9990cb4a18c0bf0b819716c913065797e2e",
+    "recipes.py": "c796d2787a21e10b29bccdff5c15879ae7cb3dcc1c7ed6d4af152c890184937b",
+    "summarize.py": "9320ca812a3575b9368791867fb3586360c578b15f77b9c2902cd10c048c54fd",
+    "train.py": "b6dba86fe6bb769ea5f0a78b367bd125adf66bb784ec6aa33b1ec126bf7a7399"
+  }
+}

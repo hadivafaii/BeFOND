@@ -1,0 +1,17 @@
+# Separate SAEBench scoring environment; use requirements-overrides.txt.
+-r requirements-train.txt
+torch==2.13.0
+scikit-learn==1.9.0
+scipy==1.17.1
+sae-lens==6.28.0
+transformer-lens==2.16.1
+transformers==4.57.6
+datasets==5.0.1
+beartype==0.22.9
+jaxtyping==0.3.9
+pandas==2.3.3
+tokenizers==0.22.2
+safetensors==0.8.0
+tabulate==0.9.0
+sae-probes==0.4.0
+sae-bench @ git+https://github.com/adamkarvonen/SAEBench.git@8042bb3828c6340da8d12062324e92b2077c571c

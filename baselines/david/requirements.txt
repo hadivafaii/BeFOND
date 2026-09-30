@@ -1,0 +1,8 @@
+# Use a separate environment from the BeFOND synthetic data environment (SAELens 6.49.1).
+# Exact clean checkout used to produce the released checkpoints (SAELens 6.51.0).
+sae-lens @ git+https://github.com/decoderesearch/SAELens.git@b5711e34d072846dc112881f4c8d209407a32b56
+# Supporting versions used to validate this portable package.
+torch==2.10.0
+transformer-lens==3.8.1
+transformers==5.16.1
+huggingface-hub==1.29.0

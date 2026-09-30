@@ -1,0 +1,38 @@
+{
+  "dimensions": [
+    1536,
+    1024,
+    768,
+    512,
+    384,
+    256
+  ],
+  "learning_rates": [
+    0.001,
+    0.003
+  ],
+  "betas": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "depths": [
+    {
+      "t_outer": 1,
+      "horizon_dist": "fixed"
+    },
+    {
+      "t_outer": 50,
+      "horizon_dist": "exp-5.5"
+    }
+  ],
+  "initial_component_scale_numerator": 1.0,
+  "initial_decoder_norms": {
+    "1536": 2.0,
+    "1024": 2.0,
+    "768": 2.0,
+    "512": 4.0,
+    "384": 2.0,
+    "256": 2.0
+  }
+}

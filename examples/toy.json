@@ -1,0 +1,43 @@
+{
+  "description": "Small CPU demonstration; benchmark defaults live in configs/.",
+  "model": {
+    "input_dim": 12,
+    "num_latents": 24,
+    "seed": 0,
+    "init_scale": 0.15,
+    "prior_init_lower": -2.5,
+    "prior_init_upper": -2.5,
+    "fit_prior": true,
+    "fit_dec_bias": false,
+    "fit_dec_var": false,
+    "dec_var_pixelwise": false,
+    "inference_integrator": "etd1",
+    "inference_h": 1.5,
+    "inference_prior_mix": "logit",
+    "inference_prior_retention": 0.999,
+    "t_outer": 8,
+    "t_inner": 1
+  },
+  "train": {
+    "train_steps": 30,
+    "batch_size": 64,
+    "lr": 0.05,
+    "lr_min": 0.005,
+    "scheduler_type": "lin",
+    "horizon_dist": "uniform",
+    "kl_beta": 1.0,
+    "ngd_decoder_solver": "dense",
+    "ngd_prior_update_every": 10,
+    "ngd_prior_t_outer": 20,
+    "r0_budget": 0.1,
+    "r0_floor": 0.0001,
+    "eval_freq": 10,
+    "eval_batch_size": 64,
+    "eval_n_batches": 1,
+    "chkpt_freq": 10,
+    "log_freq": 10
+  },
+  "data": {"kind": "toy", "seed": 1, "activity": 0.1, "noise": 0.1},
+  "evaluation": {"steps": 20},
+  "logging": {"wandb": false, "project": "BeFOND", "entity": null, "name": null}
+}

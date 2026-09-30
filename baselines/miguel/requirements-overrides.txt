@@ -1,0 +1,2 @@
+# The scorer disables Jaxtyping shape annotations; retain the tested Beartype.
+beartype==0.22.9
