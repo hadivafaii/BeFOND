@@ -1,0 +1,1231 @@
+{
+  "schema_version": 1,
+  "description": "Selected BeFOND Gemma models in the paper, evaluated after 12,207 updates. Model/training fields are translated from the recorded research configurations; data paths use this release layout.",
+  "befond": [
+    {
+      "width": 16384,
+      "seed": 0,
+      "config": "configs/gemma-16k-seed0.json",
+      "training_run_id": "hzrphyhd",
+      "evaluation_run_id": "f02175ca",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 16384,
+      "seed": 1,
+      "config": "configs/gemma-16k-seed1.json",
+      "training_run_id": "o37pnnij",
+      "evaluation_run_id": "5cf5fbce",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 16384,
+      "seed": 2,
+      "config": "configs/gemma-16k-seed2.json",
+      "training_run_id": "p9eifw6o",
+      "evaluation_run_id": "79c3f952",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 65536,
+      "seed": 0,
+      "config": "configs/gemma-64k-seed0.json",
+      "training_run_id": "619dh699",
+      "evaluation_run_id": "4c4937c4",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 65536,
+      "seed": 1,
+      "config": "configs/gemma-64k-seed1.json",
+      "training_run_id": "qjn758sj",
+      "evaluation_run_id": "b1bb844f",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 65536,
+      "seed": 2,
+      "config": "configs/gemma-64k-seed2.json",
+      "training_run_id": "zo8jh842",
+      "evaluation_run_id": "dab84f41",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 131072,
+      "seed": 0,
+      "config": "configs/gemma-128k-seed0.json",
+      "training_run_id": "momzw36u",
+      "evaluation_run_id": "632ac275",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 131072,
+      "seed": 1,
+      "config": "configs/gemma-128k-seed1.json",
+      "training_run_id": "sleavud9",
+      "evaluation_run_id": "8b56c2b1",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 131072,
+      "seed": 2,
+      "config": "configs/gemma-128k-seed2.json",
+      "training_run_id": "0volxoem",
+      "evaluation_run_id": "683a2181",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 524288,
+      "seed": 0,
+      "config": "configs/gemma-512k-seed0.json",
+      "training_run_id": "jhcslpwz",
+      "evaluation_run_id": "b7bce9f0",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 524288,
+      "seed": 1,
+      "config": "configs/gemma-512k-seed1.json",
+      "training_run_id": "titnpbgu",
+      "evaluation_run_id": "d14c64ea",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    },
+    {
+      "width": 524288,
+      "seed": 2,
+      "config": "configs/gemma-512k-seed2.json",
+      "training_run_id": "0im8ms71",
+      "evaluation_run_id": "d9333b8b",
+      "checkpoint_updates": 12207,
+      "evaluation_steps": 10
+    }
+  ],
+  "saelens_baselines": {
+    "repo_id": "chanind-goodfire/baseline-saes",
+    "revision": "138a6e804e344534c8e7cf721098772ef07ca947",
+    "description": "Only configurations selected for the paper Gemma comparison. Recorded training exports omit the original MultiSAETrainer implementation and some optimizer settings.",
+    "models": [
+      {
+        "architecture": "batchtopk",
+        "width": 16384,
+        "target_l0": 400,
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 16384,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 400,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "architecture": "batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-16384/k400/seed-1/step-012207",
+            "training_config_sha256": "d0b36632ed1f2dadbf9ac44f63ebcfea9811ec1d645316392324c02837af0ecc"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-16384/k400/seed-2/step-012207",
+            "training_config_sha256": "3e5e4b2d6ab15d1f777d496acf66c0bd7403404b1e53274e5225407aec3624de"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-16384/k400/seed-3/step-012207",
+            "training_config_sha256": "72f209cf68207c7f68cb405d84d5bab4f61e2861b146d5361b7f9b037a091f23"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-16384/k400/seed-4/step-012207",
+            "training_config_sha256": "f23a2dc5be1364bded5144c38d71e39a7b9e58c5770c1ca15f771b9562e866b8"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-16384/k400/seed-5/step-012207",
+            "training_config_sha256": "2ffc56e0d566244a127d0c17351a57884a69554cd2bbaecaff54f93b87335ead"
+          }
+        ]
+      },
+      {
+        "architecture": "batchtopk",
+        "width": 65536,
+        "target_l0": 400,
+        "used_for": [
+          "sparse_probing"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 65536,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 400,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "architecture": "batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k400/seed-1/step-012207",
+            "training_config_sha256": "cd1ed9d06b5745522a73157eedcbac990aa5df43bb0e46a93f2a741c9c6b10f5"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k400/seed-2/step-012207",
+            "training_config_sha256": "a8831b86e8967d5c1e70d0d850220a0c946ed1611d40235ce6ecaddf3354e038"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k400/seed-3/step-012207",
+            "training_config_sha256": "883713cde87ae0e752cdb9f753ec726a70c6faa8528028694beea6d6e63f3bd6"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k400/seed-4/step-012207",
+            "training_config_sha256": "92eecf263ae760dc59906ccf964177df87bbe0aa969c335b458750eea5e822d3"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k400/seed-5/step-012207",
+            "training_config_sha256": "64c77e37ff29108f417d5579878e86ee1c52db99ade9994f3cd9e0be92c39596"
+          }
+        ]
+      },
+      {
+        "architecture": "batchtopk",
+        "width": 65536,
+        "target_l0": 800,
+        "used_for": [
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 65536,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 800,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "architecture": "batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k800/seed-1/step-012207",
+            "training_config_sha256": "0d2bdfa02aec3ca85b660f80a6ae27b72ce71c0a56974082d77d70f1c773a48b"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k800/seed-2/step-012207",
+            "training_config_sha256": "45a05cde24a39bfed999ab65f313148f84d470eb790852ef2f4f155dd2c225b3"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k800/seed-3/step-012207",
+            "training_config_sha256": "53737bc910c20f194b320a078d9950d2079f90dd4fb754b99a52a1cc1ac7ba39"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k800/seed-4/step-012207",
+            "training_config_sha256": "29dc4c51532c2c64647dfe7e4fffd1cc1ce8c4ae4ce7557d0531b1a2a7e414a9"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-65536/k800/seed-5/step-012207",
+            "training_config_sha256": "3dce66c18c4662892f2c1eb6395fbcd6ecba704aaae216eaec8c02bf30c676de"
+          }
+        ]
+      },
+      {
+        "architecture": "batchtopk",
+        "width": 131072,
+        "target_l0": 600,
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 131072,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 600,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "architecture": "batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-131072/k600/seed-1/step-012207",
+            "training_config_sha256": "f8847aa6c724c3db68b45e68a693831e162bc11ce9ad41ef30f856ab58be89dd"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-131072/k600/seed-2/step-012207",
+            "training_config_sha256": "a354a833f12a8fc7e38099f31ecf88b84129b4276aa30090d7f1335a0bffc5b1"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-131072/k600/seed-3/step-012207",
+            "training_config_sha256": "95cbce94698dd050f3d0ab4863845be647e16e6c639da3ee799d917e0d239668"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-131072/k600/seed-4/step-012207",
+            "training_config_sha256": "8ce317fc763e5715eddb8946eaf47bc6e2abde997187fe5548ceb84527d996b5"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-131072/k600/seed-5/step-012207",
+            "training_config_sha256": "50312bf8e21306f5559a593e740b281e00a6753c36f9848fbfc91df176483626"
+          }
+        ]
+      },
+      {
+        "architecture": "batchtopk",
+        "width": 524288,
+        "target_l0": 800,
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 524288,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 800,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "architecture": "batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-524288/k800/seed-1/step-012207",
+            "training_config_sha256": "4622353a76e0a7fcba41347dc3198ddc5c64092765eb42074e133d56f75e8af8"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-524288/k800/seed-2/step-012207",
+            "training_config_sha256": "29bbcb96afe53d3041d25f2d867cfa1149e6428a71dc5f89d264f7d1238f34da"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-524288/k800/seed-3/step-012207",
+            "training_config_sha256": "176a98ba93010447c9d615e6a575d8f7e4140e31d24d61186ab6f4614cbc94ce"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-524288/k800/seed-4/step-012207",
+            "training_config_sha256": "364180b7af163019fae69417a707be36808b6400509e34388846b365acefbbc3"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/batchtopk/width-524288/k800/seed-5/step-012207",
+            "training_config_sha256": "57faa5dc6dd035fc866a0ca749ddaaf730460a91f44f4bfb22d0f2e96933b6ca"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 16384,
+        "target_l0": 200,
+        "used_for": [
+          "sparse_probing"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 16384,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 200,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k200/seed-1/step-012207",
+            "training_config_sha256": "38c1062ef94a64267eb7c4ad4502d834e0b15cc8ca443374947c82c047a57e15"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k200/seed-2/step-012207",
+            "training_config_sha256": "5fc2d9e24f4624ca7fa355c6c25d6181983fbef7620774b22ddce490782d0bfb"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k200/seed-3/step-012207",
+            "training_config_sha256": "5e38aae01851098b32a5a0f059486a472fc779f62aaea74a97489d786918452e"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k200/seed-4/step-012207",
+            "training_config_sha256": "a90d0b4fba3ea59b34bdf508e5de96e16e81ffe97eaad7870a5a6e9f64718efa"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k200/seed-5/step-012207",
+            "training_config_sha256": "666accaba49d698360d477e46f743afbf201562c92f4a4b8db92546713019c42"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 16384,
+        "target_l0": 400,
+        "used_for": [
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 16384,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 400,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k400/seed-1/step-012207",
+            "training_config_sha256": "96a015b14328a9a73271ca0f388c6d5d6f161d49c26b70bb40cb0fbfe4075591"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k400/seed-2/step-012207",
+            "training_config_sha256": "07caf9012932707d7c640d21c4db4def87000d0e8e8d0e5e28035ae851648078"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k400/seed-3/step-012207",
+            "training_config_sha256": "32c2fc83645f7fbe33f557dee298a3fb9e201aafd7360a8f6a546462de505551"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k400/seed-4/step-012207",
+            "training_config_sha256": "ced8ef68a836ec9e27fe219cae477fc62cd4bee218a3ffd075fcba2c9a5e093e"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-16384/k400/seed-5/step-012207",
+            "training_config_sha256": "dc1abecce64b82601c20e9369672c267a4ffde67f58c3027ffe7be9f43797ba0"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 65536,
+        "target_l0": 400,
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 65536,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 400,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384,
+              65536
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-65536/k400/seed-1/step-012207",
+            "training_config_sha256": "ea752c2b77ec99b23ef8528d76489d5f46439c43024958ebb1f49a1d68cdafb6"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-65536/k400/seed-2/step-012207",
+            "training_config_sha256": "257b8a45b80a790cf72e3ca2f6b6b178b0f3d04346a5110402f2dd5253656f6c"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-65536/k400/seed-3/step-012207",
+            "training_config_sha256": "0968e570f43b92cd69df50db1d60ab0c48b48928fd5bae99a55b7c611f111e81"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-65536/k400/seed-4/step-012207",
+            "training_config_sha256": "6f19cbed7a994b0b155b171f05663e78f93be9b5f1918920dab5dd429b13e7a7"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-65536/k400/seed-5/step-012207",
+            "training_config_sha256": "688097648334ad194b45e381dfcc0717afc0c239fdaae297635cf22a782ebd14"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 131072,
+        "target_l0": 200,
+        "used_for": [
+          "sparse_probing"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 131072,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 200,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384,
+              131072
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k200/seed-1/step-012207",
+            "training_config_sha256": "ece4d7fbfe92371e9556975c431ced740c3b4a678e46dacad62483e70397ce42"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k200/seed-2/step-012207",
+            "training_config_sha256": "8c973f23adcd619d4ec5b3a15f2a727d3fe49f50fb7f1b9488b58bda6be9f2ac"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k200/seed-3/step-012207",
+            "training_config_sha256": "bd2ec36f60fef8fb1e0a99c6f84277f90d1273396ff6a89f66fce68f618218c9"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k200/seed-4/step-012207",
+            "training_config_sha256": "d1eb3805effb92f07efb77fb91c2d6727d25c5f230527abec2fd85b65fd6ff9c"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k200/seed-5/step-012207",
+            "training_config_sha256": "6e642baeb0a8b21787c1735342f6ce8f3aed23f86256ef88319f1dd3aac64d35"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 131072,
+        "target_l0": 400,
+        "used_for": [
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 131072,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 400,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384,
+              131072
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k400/seed-1/step-012207",
+            "training_config_sha256": "5c000ce7876094abf64b4509a216ea8645e895ee2571153cfd7a25a8fb06fefe"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k400/seed-2/step-012207",
+            "training_config_sha256": "d27277a4216c58edd5c8eceba3473d9f0a24de9926e8d99bb6bbfb35099136e8"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k400/seed-3/step-012207",
+            "training_config_sha256": "bf5b4762d439f8ea848f01c93e00e8711aeb4bcca3ba24a77bc656040daaa73e"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k400/seed-4/step-012207",
+            "training_config_sha256": "21fe7ab67397b8d9c7b6c61f406b602de8c28c400511947f8261e561704c2889"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-131072/k400/seed-5/step-012207",
+            "training_config_sha256": "91988929b78089696b791f1f8513e6f867858e213c9a47721c2cb60eee784f46"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 524288,
+        "target_l0": 200,
+        "used_for": [
+          "sparse_probing"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 524288,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 200,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384,
+              524288
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k200/seed-1/step-012207",
+            "training_config_sha256": "557dc8799265ca56beea01e57691fa659ddb0525d48779e2ef81868ae0742fe8"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k200/seed-2/step-012207",
+            "training_config_sha256": "20c50d015e0f2c43ae425d01cf24893e4016c2074b087b1e1e2678d8c06807c9"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k200/seed-3/step-012207",
+            "training_config_sha256": "038335e818b5e12c3168c1036773dfb1b8b38184403433c7e8964ddf6a6ab03b"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k200/seed-4/step-012207",
+            "training_config_sha256": "a7bad401a90f7479baf0967545c81ff321417dbf3de081fef51ae3c8ee92e9c3"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k200/seed-5/step-012207",
+            "training_config_sha256": "72e3a8ace1047b2687b81fc33fd13bf6e859b3df7efe5adae8371a2873a8508f"
+          }
+        ]
+      },
+      {
+        "architecture": "matryoshka_batchtopk",
+        "width": 524288,
+        "target_l0": 400,
+        "used_for": [
+          "ravel"
+        ],
+        "shuffle_seed": "same as model seed",
+        "recorded_config": {
+          "sae": {
+            "d_in": 2304,
+            "d_sae": 524288,
+            "dtype": "float32",
+            "apply_b_dec_to_input": true,
+            "normalize_activations": "none",
+            "reshape_activations": "none",
+            "decoder_init_norm": 0.1,
+            "k": 400,
+            "use_sparse_activations": false,
+            "aux_loss_coefficient": 1.0,
+            "rescale_acts_by_decoder_norm": true,
+            "topk_threshold_lr": 0.01,
+            "matryoshka_widths": [
+              4096,
+              16384,
+              524288
+            ],
+            "use_matryoshka_aux_loss": true,
+            "architecture": "matryoshka_batchtopk"
+          },
+          "training": {
+            "batch_size": 4096,
+            "lr": 0.0003,
+            "lr_decay_steps": 0,
+            "requested_training_tokens": 50000000,
+            "actual_training_tokens": 49999872,
+            "checkpoint_step": 12207
+          },
+          "normalization": {
+            "training_normalization": "zca_whiten",
+            "whitening_dataset_revision": "81d7a6384c09229b09941f298ea3c8834702d29d",
+            "whitening_content_sha256": "e6c34527f9ea6441d5c2ce440838bab21999d1056fe7331be4551ca7a4b53d1c",
+            "whitening_fit_tokens": 500000000
+          },
+          "runtime": {
+            "sae_lens": "6.51.1",
+            "llm": {
+              "revision": "c5ebcd40d208330abc697524c919956e692655cf",
+              "torch_dtype": "bfloat16",
+              "attn_implementation": "sdpa"
+            },
+            "model_name": "google/gemma-2-2b",
+            "hook_name": "model.layers.12"
+          }
+        },
+        "sources": [
+          {
+            "seed": 1,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k400/seed-1/step-012207",
+            "training_config_sha256": "b49f4641df81764785bc85865824cf3b55c3c659f70dda663b492b4f8d76ced0"
+          },
+          {
+            "seed": 2,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k400/seed-2/step-012207",
+            "training_config_sha256": "8c22e957a9a6da284ec11e145c26cffef93f3c2055e0be67180a1d4f0cb7e355"
+          },
+          {
+            "seed": 3,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k400/seed-3/step-012207",
+            "training_config_sha256": "bc7208e076cf54267163e6c2d51f2c86667cd6b9a301e326f75db79a4c842968"
+          },
+          {
+            "seed": 4,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k400/seed-4/step-012207",
+            "training_config_sha256": "8c82e93a672a1154b4425146b48878b522692b51a17e2e1533726ca0e2132fb9"
+          },
+          {
+            "seed": 5,
+            "checkpoint_path": "gemma-2-2b/layer-12/whitened/50M/learning-curves-5-seeds/matryoshka-batchtopk/width-524288/k400/seed-5/step-012207",
+            "training_config_sha256": "53ad91773226ae09ff8d4072950181b9dd3da0c2038c8b9cfe7dfd519add6a98"
+          }
+        ]
+      }
+    ]
+  },
+  "mean_field": {
+    "description": "Selected whitened 50M-token MF recipe from baselines.miguel.config.selected_config; set the model seed explicitly for each run.",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "models": [
+      {
+        "method": "mf",
+        "target": "saebench",
+        "width": 16384,
+        "dim": 2304,
+        "seed": 0,
+        "steps": 20,
+        "damping": 0.2,
+        "first_damping": 1.0,
+        "w_lr": 0.0005,
+        "moment_lr": 0.003,
+        "tokens": 49999872,
+        "batch": 2048,
+        "buffer": 16384,
+        "init_backend": "cpu",
+        "norm_max": 1.58,
+        "normalization": "whiten",
+        "prior": 0.01,
+        "clip_ratio": 3.0,
+        "skip_ratio": 5.0,
+        "guard_warmup": 2000,
+        "max_skip_rate": 0.2
+      },
+      {
+        "method": "mf",
+        "target": "saebench",
+        "width": 65536,
+        "dim": 2304,
+        "seed": 0,
+        "steps": 20,
+        "damping": 0.2,
+        "first_damping": 1.0,
+        "w_lr": 0.0005,
+        "moment_lr": 0.003,
+        "tokens": 49999872,
+        "batch": 2048,
+        "buffer": 16384,
+        "init_backend": "gpu",
+        "norm_max": 1.58,
+        "normalization": "whiten",
+        "prior": 0.0025,
+        "clip_ratio": 3.0,
+        "skip_ratio": 5.0,
+        "guard_warmup": 2000,
+        "max_skip_rate": 0.2
+      },
+      {
+        "method": "mf",
+        "target": "saebench",
+        "width": 131072,
+        "dim": 2304,
+        "seed": 0,
+        "steps": 20,
+        "damping": 0.2,
+        "first_damping": 1.0,
+        "w_lr": 0.0005,
+        "moment_lr": 0.003,
+        "tokens": 49999872,
+        "batch": 2048,
+        "buffer": 16384,
+        "init_backend": "gpu",
+        "norm_max": 1.58,
+        "normalization": "whiten",
+        "prior": 0.00125,
+        "clip_ratio": 3.0,
+        "skip_ratio": 5.0,
+        "guard_warmup": 2000,
+        "max_skip_rate": 0.2
+      },
+      {
+        "method": "mf",
+        "target": "saebench",
+        "width": 524288,
+        "dim": 2304,
+        "seed": 0,
+        "steps": 20,
+        "damping": 0.2,
+        "first_damping": 1.0,
+        "w_lr": 0.0005,
+        "moment_lr": 0.01,
+        "tokens": 49999872,
+        "batch": 2048,
+        "buffer": 16384,
+        "init_backend": "gpu",
+        "norm_max": 1.58,
+        "normalization": "whiten",
+        "prior": 0.0003125,
+        "clip_ratio": 3.0,
+        "skip_ratio": 5.0,
+        "guard_warmup": 2000,
+        "max_skip_rate": 0.2
+      }
+    ]
+  },
+  "gemma_scope": {
+    "repo_id": "google/gemma-scope-2b-pt-res",
+    "description": "Released checkpoints selected by top-1 accuracy and RAVEL disentanglement at the four shared widths in the paper table; retain their original preprocessing.",
+    "models": [
+      {
+        "width": 16384,
+        "checkpoint_path": "layer_12/width_16k/average_l0_445",
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ]
+      },
+      {
+        "width": 65536,
+        "checkpoint_path": "layer_12/width_65k/average_l0_297",
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ]
+      },
+      {
+        "width": 131072,
+        "checkpoint_path": "layer_12/width_131k/average_l0_264",
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ]
+      },
+      {
+        "width": 524288,
+        "checkpoint_path": "layer_12/width_524k/average_l0_227",
+        "used_for": [
+          "sparse_probing",
+          "ravel"
+        ]
+      }
+    ]
+  }
+}

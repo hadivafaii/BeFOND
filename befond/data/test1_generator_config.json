@@ -1,0 +1,45 @@
+{
+  "num_features": 16384,
+  "hidden_dim": 768,
+  "firing_probability": {
+    "exponent": 0.5,
+    "max_prob": 0.4,
+    "min_prob": 0.0005,
+    "generator_name": "zipfian"
+  },
+  "hierarchy": {
+    "total_root_nodes": 128,
+    "branching_factor": 4,
+    "max_depth": 3,
+    "mutually_exclusive_portion": 1.0,
+    "mutually_exclusive_min_depth": 0,
+    "mutually_exclusive_max_depth": null,
+    "compensate_probabilities": true,
+    "scale_children_by_parent": false
+  },
+  "orthogonalization": {
+    "num_steps": 100,
+    "lr": 0.0003,
+    "chunk_size": 1024
+  },
+  "correlation": {
+    "rank": 25,
+    "correlation_scale": 0.1,
+    "seed": null
+  },
+  "std_firing_magnitudes": {
+    "mean": 0.5,
+    "std": 0.5,
+    "min_value": null,
+    "max_value": null,
+    "generator_name": "folded_normal"
+  },
+  "mean_firing_magnitudes": {
+    "start": 5.0,
+    "end": 4.0,
+    "generator_name": "linear"
+  },
+  "bias": 0.5,
+  "dtype": "float32",
+  "seed": 42
+}

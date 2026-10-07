@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "repo_id": "chanind-goodfire/synthsaebench-full-width-sweep",
+  "description": "Six selected seed-0 paper recipes for the original/modified full-width synthetic comparison. Published source scores are retained as recorded; paper reevaluations use their stated metric protocol.",
+  "runs": [
+    {
+      "run_id": "r1/btk_k35_s0",
+      "stage": "r1",
+      "architecture": "btk",
+      "recipe": "btk",
+      "target_l0": 35,
+      "seed": 0,
+      "train_samples": 200000000,
+      "eval_samples": 1000000,
+      "config": {
+        "recipe": {
+          "arch": "btk",
+          "autocast": true,
+          "lr_decay": 0.0,
+          "aux_coef": 1.0,
+          "dead_window": 1000,
+          "mat_widths": [
+            128,
+            512,
+            2048
+          ],
+          "mat_aux": true,
+          "gate": "plain",
+          "gate_until": 0.0,
+          "floor_frac": 1.0,
+          "min_fires": 1,
+          "minfire_every": 1,
+          "resample_every": 0,
+          "resample_until": 0.8,
+          "bw": 1.0,
+          "bw_end": null,
+          "bw_until": 0.8,
+          "ste": false,
+          "penalty": "step",
+          "preact": null,
+          "init_threshold": 1.0,
+          "calibrate_threshold": false,
+          "tuner_gain": 0.0003,
+          "name": "btk"
+        },
+        "k": 35,
+        "seed": 0,
+        "samples": 200000000,
+        "batch": 1024,
+        "lr": 0.0003,
+        "width": 16384,
+        "model_repo": "decoderesearch/synth-sae-bench-16k-v1",
+        "model_revision": "b2efd8b919ae46d6d487c73d46db5ee52813621d",
+        "scale_children_by_parent": false,
+        "saelens": {
+          "version": "6.51.0",
+          "revision": "b5711e34d072846dc112881f4c8d209407a32b56"
+        },
+        "init": {}
+      },
+      "metrics": {
+        "mcc": 0.5345227718353271,
+        "f1": 0.4428495466709137,
+        "precision": 0.37883108854293823,
+        "recall": 0.5583862066268921,
+        "r2": 0.8893319519201907,
+        "sae_l0": 34.833798,
+        "true_l0": 34.470954,
+        "dead": 1577,
+        "uniqueness": 0.745849609375,
+        "shrinkage": 0.9382504063110352
+      },
+      "files": {
+        "final/cfg.json": {
+          "sha256": "d4ab6f606471f60cb8cb11d64d295a326845a71454b5d831de9e0b6c97e21949",
+          "bytes": 507
+        },
+        "final/sae_weights.safetensors": {
+          "sha256": "ae16225d1559bab1469db51b5fffecf82de5170d40e9efa11f4bc177086c605d",
+          "bytes": 100797840
+        },
+        "history.json": {
+          "sha256": "1f74bd2cc19786bf87e6a53a2f95f02079d9b3fdba219e2e52f1585aebaadb9a",
+          "bytes": 31907
+        },
+        "progress.json": {
+          "sha256": "5f98db5b1f463ef55583945fbdfabf77af1478f9df2181eacec766fb7e68f4aa",
+          "bytes": 319
+        },
+        "run.json": {
+          "sha256": "7f1b088979bd72053690ab8cf22977a61d5ef0dc05d08d67ab4c2caed29f7d39",
+          "bytes": 971
+        },
+        "score.json": {
+          "sha256": "5a63e828655e0e7404cfebaa47db8789bd63872d5635227aaab7a98e13c3779b",
+          "bytes": 1433
+        }
+      },
+      "original_metadata_sha256": {
+        "run.json": "92d5532504a8df6f3fa1aafceef1dbf89b85c38c508d959f180d0f9b5251c79c",
+        "score.json": "998a7e726f26eeda14688003b03bebfaad60798adb320bcdc7c0e5a5f3154558"
+      }
+    },
+    {
+      "run_id": "r3/mat_resample_win100_decay_k35_s0",
+      "stage": "r3",
+      "architecture": "mat",
+      "recipe": "mat_resample_win100_decay",
+      "target_l0": 35,
+      "seed": 0,
+      "train_samples": 200000000,
+      "eval_samples": 1000000,
+      "config": {
+        "recipe": {
+          "arch": "mat",
+          "autocast": true,
+          "lr_decay": 0.2,
+          "aux_coef": 1.0,
+          "dead_window": 100,
+          "mat_widths": [
+            128,
+            512,
+            2048
+          ],
+          "mat_aux": true,
+          "gate": "plain",
+          "gate_until": 0.0,
+          "floor_frac": 1.0,
+          "min_fires": 1,
+          "minfire_every": "auto",
+          "resample_every": 2500,
+          "resample_until": 0.8,
+          "bw": 1.0,
+          "bw_end": null,
+          "bw_until": 0.8,
+          "ste": false,
+          "penalty": "step",
+          "preact": null,
+          "init_threshold": 1.0,
+          "calibrate_threshold": false,
+          "tuner_gain": 0.0003,
+          "l0_coef": 1.0,
+          "revive": false,
+          "name": "mat_resample_win100_decay"
+        },
+        "k": 35,
+        "seed": 0,
+        "samples": 200000000,
+        "batch": 1024,
+        "lr": 0.0003,
+        "width": 16384,
+        "model_repo": "decoderesearch/synth-sae-bench-16k-v1",
+        "model_revision": "b2efd8b919ae46d6d487c73d46db5ee52813621d",
+        "scale_children_by_parent": false,
+        "saelens": {
+          "version": "6.51.0",
+          "revision": "b5711e34d072846dc112881f4c8d209407a32b56"
+        },
+        "init": {}
+      },
+      "metrics": {
+        "mcc": 0.8405208587646484,
+        "f1": 0.8359915018081665,
+        "precision": 0.8019090890884399,
+        "recall": 0.8981643915176392,
+        "r2": 0.9419072826900173,
+        "sae_l0": 34.953166,
+        "true_l0": 34.470954,
+        "dead": 495,
+        "uniqueness": 0.9478759765625,
+        "shrinkage": 0.9812726892089844
+      },
+      "files": {
+        "final/cfg.json": {
+          "sha256": "e7a13fef360f6f8fdfcc342e96913cdda53cc2cf6b3c7c4492612aef33b24634",
+          "bytes": 597
+        },
+        "final/sae_weights.safetensors": {
+          "sha256": "0d8c285e5b4623e6eb3c8498a213540ac4dadfe5caa7cc96ad7bab45fa8d00a2",
+          "bytes": 100797840
+        },
+        "history.json": {
+          "sha256": "a49d5662cab6a570e65916e4a201fc6322df31741e9a2f6993f49bb1fea9a66e",
+          "bytes": 47921
+        },
+        "progress.json": {
+          "sha256": "5adcd22b1b8a5c02b0a5d6a81a6b953b9a14cb88184036e4157eb19a2bb2f58f",
+          "bytes": 470
+        },
+        "run.json": {
+          "sha256": "740aa94826ae321564f769019c3ff60d1d06326f82a1233d553e6b94c16d9468",
+          "bytes": 1041
+        },
+        "score.json": {
+          "sha256": "89f7646b8a2d05b475b078386600cb7069df6ca1a5fde0e8342ab818c6effcdf",
+          "bytes": 1506
+        }
+      },
+      "original_metadata_sha256": {
+        "run.json": "707ff2b0a00616cdc1a0b9c990941e45ab398fa7843f1b02588077c017aa0119",
+        "score.json": "f2622dddb05db627ebada24fb4a93015bc6d3ad6fa0bbf960fbebbe0afa93eb6"
+      }
+    },
+    {
+      "run_id": "grid/btk_minfire_decay_k45_s0",
+      "stage": "grid",
+      "architecture": "btk",
+      "recipe": "btk_minfire_decay",
+      "target_l0": 45,
+      "seed": 0,
+      "train_samples": 200000000,
+      "eval_samples": 1000000,
+      "config": {
+        "recipe": {
+          "arch": "btk",
+          "autocast": true,
+          "lr_decay": 0.2,
+          "aux_coef": 1.0,
+          "dead_window": 1000,
+          "mat_widths": [
+            128,
+            512,
+            2048
+          ],
+          "mat_aux": true,
+          "gate": "minfire",
+          "gate_until": 0.9,
+          "floor_frac": 1.0,
+          "min_fires": 1,
+          "minfire_every": "auto",
+          "resample_every": 0,
+          "resample_until": 0.8,
+          "bw": 1.0,
+          "bw_end": null,
+          "bw_until": 0.8,
+          "ste": false,
+          "penalty": "step",
+          "preact": null,
+          "init_threshold": 1.0,
+          "calibrate_threshold": false,
+          "tuner_gain": 0.0003,
+          "l0_coef": 1.0,
+          "revive": false,
+          "name": "btk_minfire_decay"
+        },
+        "k": 45,
+        "seed": 0,
+        "samples": 200000000,
+        "batch": 1024,
+        "lr": 0.0003,
+        "width": 16384,
+        "model_repo": "decoderesearch/synth-sae-bench-16k-v1",
+        "model_revision": "b2efd8b919ae46d6d487c73d46db5ee52813621d",
+        "scale_children_by_parent": false,
+        "saelens": {
+          "version": "6.51.0",
+          "revision": "b5711e34d072846dc112881f4c8d209407a32b56"
+        },
+        "init": {}
+      },
+      "metrics": {
+        "mcc": 0.8152949810028076,
+        "f1": 0.6928375959396362,
+        "precision": 0.6082980632781982,
+        "recall": 0.8606373071670532,
+        "r2": 0.9471713772309165,
+        "sae_l0": 44.959191,
+        "true_l0": 34.470954,
+        "dead": 484,
+        "uniqueness": 0.8975830078125,
+        "shrinkage": 0.9669354374389648
+      },
+      "files": {
+        "final/cfg.json": {
+          "sha256": "bdfd66a67646b12bba66f4be349757f7e3ac9f75a86cfa0cb1cb4502a99e0ac9",
+          "bytes": 507
+        },
+        "final/sae_weights.safetensors": {
+          "sha256": "b63dbd3fd8fc7a53b54a59214d584379fcad3e168a1f1557d25ad8c101b57bae",
+          "bytes": 100797840
+        },
+        "history.json": {
+          "sha256": "534d4a63765ed27f4d05b1e99958164993998591837b750614a05a2def53b27a",
+          "bytes": 39909
+        },
+        "progress.json": {
+          "sha256": "4776fbfc5bdbf818c5e11f341d7c7466f3e7bca5405b15763d31a906cf832777",
+          "bytes": 390
+        },
+        "run.json": {
+          "sha256": "b8a0e3cbe29b40008edfb0566188a13476affe8313aecaa8a5a33c3043afc570",
+          "bytes": 1033
+        },
+        "score.json": {
+          "sha256": "04e286085ad87a37748a55afe3809e163379802362f82c4dfcc282b1f5a1d559",
+          "bytes": 1495
+        }
+      },
+      "original_metadata_sha256": {
+        "run.json": "7b97add30ca490c6fc6be45f13746594405e264d1a4fe8a925afca2b2e9b2c93",
+        "score.json": "9158655151ed14447f492868867276c26827e93023a0dc5778c14acca251406e"
+      }
+    },
+    {
+      "run_id": "grid/jr_k45_s0",
+      "stage": "grid",
+      "architecture": "jr",
+      "recipe": "jr",
+      "target_l0": 45,
+      "seed": 0,
+      "train_samples": 200000000,
+      "eval_samples": 1000000,
+      "config": {
+        "recipe": {
+          "arch": "jr",
+          "autocast": true,
+          "lr_decay": 0.0,
+          "aux_coef": 1.0,
+          "dead_window": 1000,
+          "mat_widths": [
+            128,
+            512,
+            2048
+          ],
+          "mat_aux": true,
+          "gate": "plain",
+          "gate_until": 0.0,
+          "floor_frac": 1.0,
+          "min_fires": 1,
+          "minfire_every": "auto",
+          "resample_every": 0,
+          "resample_until": 0.8,
+          "bw": 1.0,
+          "bw_end": null,
+          "bw_until": 0.8,
+          "ste": false,
+          "penalty": "step",
+          "preact": null,
+          "init_threshold": 1.0,
+          "calibrate_threshold": false,
+          "tuner_gain": 0.0003,
+          "l0_coef": 1.0,
+          "revive": false,
+          "name": "jr"
+        },
+        "k": 45,
+        "seed": 0,
+        "samples": 200000000,
+        "batch": 1024,
+        "lr": 0.0003,
+        "width": 16384,
+        "model_repo": "decoderesearch/synth-sae-bench-16k-v1",
+        "model_revision": "b2efd8b919ae46d6d487c73d46db5ee52813621d",
+        "scale_children_by_parent": false,
+        "saelens": {
+          "version": "6.51.0",
+          "revision": "b5711e34d072846dc112881f4c8d209407a32b56"
+        },
+        "init": {
+          "scaling_factor": 0.9887610199376632,
+          "initial_pre_std": 0.5115990042686462,
+          "initial_l0": 440.453125
+        }
+      },
+      "metrics": {
+        "mcc": 0.48395276069641113,
+        "f1": 0.32717686891555786,
+        "precision": 0.25091293454170227,
+        "recall": 0.49279171228408813,
+        "r2": 0.8705096928894471,
+        "sae_l0": 45.148172,
+        "true_l0": 34.470954,
+        "dead": 8069,
+        "uniqueness": 0.7052001953125,
+        "shrinkage": 0.9288780455322265
+      },
+      "files": {
+        "final/cfg.json": {
+          "sha256": "7aa2044d41d70bfd5f9cba016a5b544c4c42a861cec58317019c9b808ea03ad9",
+          "bytes": 627
+        },
+        "final/sae_weights.safetensors": {
+          "sha256": "8e62909e5de5f2c1fa8a64f1dd161e6f14874c454750db9c99106476dff3bf74",
+          "bytes": 100797840
+        },
+        "history.json": {
+          "sha256": "636a4caec3f9043079f74e1517ae8a0dcec8716e6eb6181b45666e866f26562d",
+          "bytes": 45832
+        },
+        "progress.json": {
+          "sha256": "7b0d34508bc1b6ffb60bb543ca1fdb1d7f515e89c363f989420327c2295531b6",
+          "bytes": 449
+        },
+        "run.json": {
+          "sha256": "87323243b09c5bca94996d814dbec3e4dcd3e39b96abac193d534207c011c0e2",
+          "bytes": 1132
+        },
+        "score.json": {
+          "sha256": "0dde0e4be35864053b240ee01815070eaadfcb2a938eeb33e28cdb0dd935bef6",
+          "bytes": 1599
+        }
+      },
+      "original_metadata_sha256": {
+        "run.json": "dcc5f7f53fb60a944a97bd036896ce6ea72d5e8ecd917d85d754bc104f2b8c99",
+        "score.json": "e6e6b3b9bd9a61590fa475ce3da507001c4f295aba14627e3773c83da2aacf99"
+      }
+    },
+    {
+      "run_id": "grid/jr_ste_c01_resample_decay_k40_s0",
+      "stage": "grid",
+      "architecture": "jr",
+      "recipe": "jr_ste_c01_resample_decay",
+      "target_l0": 40,
+      "seed": 0,
+      "train_samples": 200000000,
+      "eval_samples": 1000000,
+      "config": {
+        "recipe": {
+          "arch": "jr",
+          "autocast": true,
+          "lr_decay": 0.2,
+          "aux_coef": 1.0,
+          "dead_window": 1000,
+          "mat_widths": [
+            128,
+            512,
+            2048
+          ],
+          "mat_aux": true,
+          "gate": "plain",
+          "gate_until": 0.0,
+          "floor_frac": 1.0,
+          "min_fires": 1,
+          "minfire_every": "auto",
+          "resample_every": 2500,
+          "resample_until": 0.8,
+          "bw": 1.0,
+          "bw_end": null,
+          "bw_until": 0.8,
+          "ste": true,
+          "penalty": "step",
+          "preact": null,
+          "init_threshold": 1.0,
+          "calibrate_threshold": false,
+          "tuner_gain": 0.0003,
+          "l0_coef": 0.1,
+          "revive": false,
+          "name": "jr_ste_c01_resample_decay"
+        },
+        "k": 40,
+        "seed": 0,
+        "samples": 200000000,
+        "batch": 1024,
+        "lr": 0.0003,
+        "width": 16384,
+        "model_repo": "decoderesearch/synth-sae-bench-16k-v1",
+        "model_revision": "b2efd8b919ae46d6d487c73d46db5ee52813621d",
+        "scale_children_by_parent": false,
+        "saelens": {
+          "version": "6.51.0",
+          "revision": "b5711e34d072846dc112881f4c8d209407a32b56"
+        },
+        "init": {
+          "scaling_factor": 0.9887610199376632,
+          "initial_pre_std": 0.5115990042686462,
+          "initial_l0": 440.453125
+        }
+      },
+      "metrics": {
+        "mcc": 0.861182689666748,
+        "f1": 0.8781355023384094,
+        "precision": 0.8500906825065613,
+        "recall": 0.916203498840332,
+        "r2": 0.9567460953588031,
+        "sae_l0": 39.963851,
+        "true_l0": 34.470954,
+        "dead": 367,
+        "uniqueness": 0.937744140625,
+        "shrinkage": 0.971842839477539
+      },
+      "files": {
+        "final/cfg.json": {
+          "sha256": "41d555e2e49bfc437410274f5725076c72804a0a2493b9c8e3fe83daca10f3a5",
+          "bytes": 626
+        },
+        "final/sae_weights.safetensors": {
+          "sha256": "6d4970d72f61ddcb83038c98020d1f4aa417df0a2c098034b88bd836c74a213b",
+          "bytes": 100797840
+        },
+        "history.json": {
+          "sha256": "1274c0a98bf8160fcffa8c643c0c33967fac9bc5cf2ff922a603d2136e9d63be",
+          "bytes": 46240
+        },
+        "progress.json": {
+          "sha256": "aa60e1c46b207bc7a802cb7309992100f06d0115e59bb0878c61a96e9120146c",
+          "bytes": 451
+        },
+        "run.json": {
+          "sha256": "71ff8b7581b6db795b0d6825cb2984454f84e2fb54f04453b5a3bf6b588233ec",
+          "bytes": 1157
+        },
+        "score.json": {
+          "sha256": "80f9eacc424c2bfa335a44d6c17415cd44022f55679b1722576ff522aa0e4f61",
+          "bytes": 1618
+        }
+      },
+      "original_metadata_sha256": {
+        "run.json": "c49810bb2f026f28603a7cdceddeb7f2b585758644eb975780a9c1e1ef25f024",
+        "score.json": "d8a737949a23075ce6af47236a187e5b7cd64fd5d01c074b8bedbd349a8246f0"
+      }
+    },
+    {
+      "run_id": "grid/mat_k20_s0",
+      "stage": "grid",
+      "architecture": "mat",
+      "recipe": "mat",
+      "target_l0": 20,
+      "seed": 0,
+      "train_samples": 200000000,
+      "eval_samples": 1000000,
+      "config": {
+        "recipe": {
+          "arch": "mat",
+          "autocast": true,
+          "lr_decay": 0.0,
+          "aux_coef": 1.0,
+          "dead_window": 1000,
+          "mat_widths": [
+            128,
+            512,
+            2048
+          ],
+          "mat_aux": true,
+          "gate": "plain",
+          "gate_until": 0.0,
+          "floor_frac": 1.0,
+          "min_fires": 1,
+          "minfire_every": "auto",
+          "resample_every": 0,
+          "resample_until": 0.8,
+          "bw": 1.0,
+          "bw_end": null,
+          "bw_until": 0.8,
+          "ste": false,
+          "penalty": "step",
+          "preact": null,
+          "init_threshold": 1.0,
+          "calibrate_threshold": false,
+          "tuner_gain": 0.0003,
+          "l0_coef": 1.0,
+          "revive": false,
+          "name": "mat"
+        },
+        "k": 20,
+        "seed": 0,
+        "samples": 200000000,
+        "batch": 1024,
+        "lr": 0.0003,
+        "width": 16384,
+        "model_repo": "decoderesearch/synth-sae-bench-16k-v1",
+        "model_revision": "b2efd8b919ae46d6d487c73d46db5ee52813621d",
+        "scale_children_by_parent": false,
+        "saelens": {
+          "version": "6.51.0",
+          "revision": "b5711e34d072846dc112881f4c8d209407a32b56"
+        },
+        "init": {}
+      },
+      "metrics": {
+        "mcc": 0.5903450846672058,
+        "f1": 0.5560154914855957,
+        "precision": 0.6473671197891235,
+        "recall": 0.5361495018005371,
+        "r2": 0.8725337447832522,
+        "sae_l0": 19.978349,
+        "true_l0": 34.470954,
+        "dead": 4923,
+        "uniqueness": 0.7396240234375,
+        "shrinkage": 0.9461767659912109
+      },
+      "files": {
+        "final/cfg.json": {
+          "sha256": "1b4a0c43c87a5cc5aba1b7035cefd4b8392cab43bd98cee095bed20d469363ee",
+          "bytes": 597
+        },
+        "final/sae_weights.safetensors": {
+          "sha256": "12da2b0be85db142fbba49392ff4fbd1603df1d83308d214e742ae7c6799fab9",
+          "bytes": 100797840
+        },
+        "history.json": {
+          "sha256": "0d567c2cb3ae0c89b597941d106b6da0331c4567d6b697bf070825dc731304d8",
+          "bytes": 47241
+        },
+        "progress.json": {
+          "sha256": "ce7e390b5b0aea10460ea4341c6e129b4bb1c44f969a994af018409a477e1d4f",
+          "bytes": 468
+        },
+        "run.json": {
+          "sha256": "4b79f029a737893b705b8eb23b2df53916e85767155806c11cf4a40ed394aecc",
+          "bytes": 1017
+        },
+        "score.json": {
+          "sha256": "41dd85946e6f7b03bea0645e4ff635ff481b424dd09b03828484c0b944d2db28",
+          "bytes": 1482
+        }
+      },
+      "original_metadata_sha256": {
+        "run.json": "9e9826bb5ed704051afb3ebb218e88e3969ec6f20535ef5a4f0f157b1fb3bc2d",
+        "score.json": "4200d6911cb15f0173ef4bd6a3b4a401f9c1ed0d114e3d72deaa3e430e5c47d6"
+      }
+    }
+  ]
+}

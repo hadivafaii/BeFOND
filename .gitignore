@@ -1,0 +1,21 @@
+# Python and editor artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv*/
+*.egg-info/
+build/
+dist/
+.DS_Store
+
+# Runtime data and model artifacts (source packages remain included)
+/data/
+/outputs/
+/checkpoints/
+/wandb/
+*.pt
+*.ckpt
+*.safetensors
+.env
+*.log

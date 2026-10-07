@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "befond"
+version = "0.1.0"
+description = "Bernoulli free-energy online natural-gradient dynamics and sparse coding baselines"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "baselines/david/LICENSE.autotuner"]
+authors = [{name = "Hadi Vafaii"}]
+dependencies = ["torch>=2.5", "numpy>=1.24", "scipy>=1.10", "safetensors>=0.4", "tqdm>=4.66"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+hub = ["huggingface-hub>=0.34"]
+logging = ["wandb>=0.20"]
+synthetic = ["sae-lens==6.49.1", "huggingface-hub>=0.34", "safetensors>=0.4", "tqdm"]
+gemma = ["sae-bench @ git+https://github.com/adamkarvonen/SAEBench.git@8042bb3828c6340da8d12062324e92b2077c571c", "sae-lens==6.28.0", "sae-probes==0.4.0", "transformer-lens==2.16.1", "datasets==3.6.0", "transformers==4.57.3", "numpy==1.26.4", "torch==2.7.1", "torchvision==0.22.1", "huggingface-hub>=0.34", "tqdm", "scikit-learn", "pandas"]
+miguel = ["jax>=0.9.2", "optax>=0.2.8", "tqdm", "huggingface-hub>=0.34"]
+
+[project.scripts]
+befond-train = "befond.training:main"
+befond-convert = "befond.checkpoints:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["befond*", "baselines*", "experiments*"]
+
+[tool.setuptools.package-data]
+"befond.data" = ["*.json"]
+"baselines.david" = ["*.json", "*.csv", "LICENSE*", "requirements*.txt"]
+"baselines.miguel" = ["*.json", "*.tsv.gz", "requirements*.txt"]
+"baselines.sae" = ["configs/*.json"]
+
+[tool.setuptools.data-files]
+"share/befond/configs" = ["configs/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

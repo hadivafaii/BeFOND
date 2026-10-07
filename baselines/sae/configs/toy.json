@@ -1,0 +1,26 @@
+{
+  "model": {
+    "model_type": "topk",
+    "input_shape": [
+      32
+    ],
+    "num_latents": 64,
+    "k_active": 4,
+    "seed": 0
+  },
+  "train": {
+    "train_steps": 200,
+    "batch_size": 200,
+    "lr": 0.001,
+    "lr_min": 1e-05,
+    "warmup_steps": 20,
+    "log_freq": 20,
+    "checkpoint_freq": 200
+  },
+  "data": {
+    "kind": "toy",
+    "seed": 1,
+    "activity": 0.05,
+    "noise": 0.1
+  }
+}

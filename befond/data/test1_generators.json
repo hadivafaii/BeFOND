@@ -1,0 +1,62 @@
+{
+  "256": {
+    "hidden_dim": 256,
+    "num_features": 16384,
+    "scale_children_by_parent": false,
+    "files": {
+      "synthetic_model.safetensors": "369f43a72f31d3a1e78809ebea7416b072731b12addae9ee1c83e51dc30577c7",
+      "synthetic_model_config.json": "2d756c6d14c7a98dcbba890e376a4b84c68ae6d1566684ae9629e81257242a32",
+      "hierarchy.json": "42b89b24a0496e046c9382e164ced0d59300156f96c49f779c4fba25974ca657"
+    }
+  },
+  "384": {
+    "hidden_dim": 384,
+    "num_features": 16384,
+    "scale_children_by_parent": false,
+    "files": {
+      "synthetic_model.safetensors": "2db17a7d5cbc75d85709844f6d2c7b10ec897bf9fce41aefbbab65589bdd32bb",
+      "synthetic_model_config.json": "c1cf446fe0c5f3071024ef898fb05930d90d6827996c279207e4adff93e26660",
+      "hierarchy.json": "42b89b24a0496e046c9382e164ced0d59300156f96c49f779c4fba25974ca657"
+    }
+  },
+  "512": {
+    "hidden_dim": 512,
+    "num_features": 16384,
+    "scale_children_by_parent": false,
+    "files": {
+      "synthetic_model.safetensors": "5c4ad1c02efc2ec11dce6d3aba127d5a6fda1aa0a407eebb55027d2fd02b30df",
+      "synthetic_model_config.json": "6d1997314e37d7beaffd7d6fbc622556bde1400a982143c0f0ca68346520fe92",
+      "hierarchy.json": "42b89b24a0496e046c9382e164ced0d59300156f96c49f779c4fba25974ca657"
+    }
+  },
+  "768": {
+    "hidden_dim": 768,
+    "num_features": 16384,
+    "scale_children_by_parent": false,
+    "files": {
+      "synthetic_model.safetensors": "4bf0b07f8f6a54a2dfd56ea11bd1ff7c9ca2040b89077446596cf0b375d00560",
+      "synthetic_model_config.json": "ec969226283f05b69fd3b2a8c1cd14b152a998d79a491d732ccd286d096908b5",
+      "hierarchy.json": "42b89b24a0496e046c9382e164ced0d59300156f96c49f779c4fba25974ca657"
+    }
+  },
+  "1024": {
+    "hidden_dim": 1024,
+    "num_features": 16384,
+    "scale_children_by_parent": false,
+    "files": {
+      "synthetic_model.safetensors": "ad418b190cc1a925df548ecf930ec9ec3f6e2c13f99ae63745710af2f4e1e531",
+      "synthetic_model_config.json": "5d7f98b198cc421c1cb526b17c0247930928371832bbe3bc42d6dd398e0741fc",
+      "hierarchy.json": "42b89b24a0496e046c9382e164ced0d59300156f96c49f779c4fba25974ca657"
+    }
+  },
+  "1536": {
+    "hidden_dim": 1536,
+    "num_features": 16384,
+    "scale_children_by_parent": false,
+    "files": {
+      "synthetic_model.safetensors": "953b67c92cbbed1129519a3976eaae573db1caf00ea542540e8924167b729a43",
+      "synthetic_model_config.json": "3ed030756676213dbd828ce7e98f09b48f99b27226b1caf0cd034b6058b4bb2b",
+      "hierarchy.json": "42b89b24a0496e046c9382e164ced0d59300156f96c49f779c4fba25974ca657"
+    }
+  }
+}
